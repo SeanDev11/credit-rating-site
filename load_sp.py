@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
+from pymongo import MongoClient
 
 # Credentials
 USERNAME = "sean.devine24@gmail.com"
@@ -38,9 +39,12 @@ if (len(driver.find_elements_by_xpath("//button[@id='onetrust-accept-btn-handler
 companies = ["APPLE", "MICROSOFT", "DUCK CREEK"]
 wait = WebDriverWait(driver, timeout=10, poll_frequency=0.25)
 
+allRatings = []
+
 # NEED TO INCLUDE WAITS!
 for company in companies:
-    print(company)
+    ratingsList = []
+    #print(company)
     # Go to next company
     next_search = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[starts-with(@class, 'button__search')]")))
     next_search.click()
@@ -68,21 +72,38 @@ for company in companies:
     ratings = driver.find_element(By.ID, "page1").find_elements(By.CLASS_NAME, "table-module__row")
     print(f"RATING COUNT {len(ratings)}")
     wait.until(EC.visibility_of_all_elements_located((By.CLASS_NAME, "table-module__column")))
+    #wait.until(EC.presence_of_element_located((By.CLASS_NAME, "content")))
+    company_name = driver.find_element(By.XPATH, "//div[@class='content']/h1").text
+  
     for rating in ratings:
         info = rating.find_elements(By.CLASS_NAME, "table-module__column")
-        for i in info:
-            print(i.text)
+        info_dict = {"company": company_name, "ratingType": info[0].text,
+                     "rating": info[1].find_element(By.XPATH, "//h5").text,
+                     "ratingDate": info[2].text, "lastReviewDate": info[3].text,
+                     "regulatoryIdentifiers": info[4].text, "outlook": info[5].text,
+                     "outlookDate": info[6].text}
+        ratingsList.append(info_dict)
+        #for i in info:
+         #   print(i.text)
+        #print("-----------")
+    allRatings.append({company_name: ratingsList})
 
-        print("-----------")
+print(allRatings)
 
-
-
-
-
-        
 # Done scraping data
-
 time.sleep(5)
+
+# Insert data into mongoDB
+cluster = "mongodb+srv://dbAdmin:dbAdmin%24@creditrating.nijkfp8.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(cluster)
+# client.SPratings is prod db
+db = client.CreditRating
+ratings = db.ratings
+
+ratings.insert_many(allRatings)
+
+
+
 
 print("Quitting...")
 driver.quit()
