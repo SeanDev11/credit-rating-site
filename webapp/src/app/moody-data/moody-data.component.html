@@ -1,0 +1,32 @@
+<ng-container *ngIf="currentCompany.ratingsMY.length > 0 || currentCompany.ratingsSAP.length > 0">
+<p class="heading" *ngIf="currentCompany.ratingsMY.length > 0 || currentCompany.ratingsSAP.length > 0">
+    <em>Moody's</em>
+</p>
+
+<table mat-table [dataSource]="currentCompany['ratingsMY']">
+    <ng-container matColumnDef="{{ column }}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef> {{ columnNames[column] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+        <td mat-cell *matCellDef="let element">
+            {{ element[column] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
+
+<p class="nodata" *ngIf="currentCompany.ratingsMY == null || (currentCompany.ratingsMY.length == 0)">
+    <em>Sorry, no data from Moody's available.</em>
+</p>
+</ng-container>
+
+
+<!--
+<table mat-table>
+    <ng-container matColumnDef="{{ column }}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef>{{ columnNames[column] }}</th>
+        <td mat-cell *matCellDef="let element">
+            data here...
+        </td>
+    </ng-container>
+</table>
+-->

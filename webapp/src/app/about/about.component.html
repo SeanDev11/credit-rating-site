@@ -1,0 +1,12 @@
+<div class="aboutContent" [ngStyle]="{'opacity':((hasQuery$ | async) == true ? 0.2 : 1)}">
+    <p class="anchor">&nbsp;</p>
+    <hr/>
+    <p class="header">Project Motivation & Information</p>
+    <p class="description">This project was created in an effort to consolidate credit rating information. 
+        There are many free company data websites available such as Atom Finance and Koyfin, 
+        however these companies do not offer credit rating data. 
+        Since Standard & Poor's and Moody's offer free access to their ratings, I decided to build a website 
+        with the MEAN stack to display this information. First, I webscraped rating data using Python and Selenium. 
+        I stored this data in a MongoDB database, which then is fed to the Angular/Typescript frontend via a 
+        REST API written in Javascript using Express.js.</p>
+</div>

@@ -1,0 +1,15 @@
+<div id="dynamicSearch">
+    <div id="searchContainer">
+        <input [(ngModel)]="searchBoxText" id="searchBox" type="text" 
+        placeholder="Search by company name or ticker..." (keyup)="getSearchResults($event)">
+        <section class="searchResults">
+            <p *ngIf="myRatings.length < 1 && (hasQuery$ | async)">Sorry. Nothing Found.</p>
+            <ng-template ngFor let-rating [ngForOf]="myRatings" let-i="index">
+                <p (click)="displayCompany($event, rating)" onmouseenter="this.style.backgroundColor='#616161'" onmouseleave="this.style.backgroundColor='#161616'">
+                    {{rating.company}}&nbsp;&nbsp;[{{rating.ticker}}]
+                </p>
+                <hr/>
+            </ng-template>
+        </section>
+    </div>
+</div>

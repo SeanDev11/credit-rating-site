@@ -1,0 +1,12 @@
+<div class="dataview" [ngStyle]="{'opacity':((hasQuery$ | async) == true ? 0.2 : 1)}">
+    <ng-container *ngIf="currentCompany$ | async; let comp">
+    <div class="companyInfo" *ngIf="!(comp['company'] == 'null')">
+      <p>
+        {{ comp['company'] }}&nbsp;&nbsp;[{{ comp['ticker'] }}]<br>{{ comp['industry'] }}
+      </p>
+      <hr/>
+    </div>
+    <app-moody-data [currentCompany]="comp"></app-moody-data>
+    <app-sandp-data [currentCompany]="comp"></app-sandp-data>
+    </ng-container>
+</div>

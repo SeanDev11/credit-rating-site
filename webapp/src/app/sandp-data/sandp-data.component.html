@@ -1,0 +1,20 @@
+<ng-container *ngIf="currentCompany.ratingsMY.length > 0 || currentCompany.ratingsSAP.length > 0">
+<p class="heading" *ngIf="currentCompany.ratingsMY.length > 0 || currentCompany.ratingsSAP.length > 0">
+    <em>Standard & Poor's</em>
+</p>
+
+<table mat-table [dataSource]="currentCompany['ratingsSAP']">
+    <ng-container matColumnDef="{{ column }}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef> {{ columnNames[column] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+        <td mat-cell *matCellDef="let element">
+            {{ dateColumns.has(column) ? element[column].split('-').join(' ') : element[column] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
+
+<p class="nodata" *ngIf="currentCompany.ratingsSAP == null || (currentCompany.ratingsSAP.length == 0)">
+    <em>Sorry, no data from S&P available.</em>
+</p>
+</ng-container>

@@ -1,0 +1,40 @@
+*{
+    color: lightblue;
+}
+
+p{
+    color: lightblue;
+    font-size: 28px;
+    margin-left: 60px;
+    padding-top: 60px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    line-height: 1.5;
+}
+
+hr {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: lightblue;
+    border: none;
+    height: 1.5px;
+}
+
+
+app-moody-data{
+    float: left;
+    margin-right: 150px;
+    margin-left: 60px;
+    margin-top: 60px;
+    margin-right: 0px;
+}
+
+app-sandp-data{
+    float: left;
+    margin-right: 150px;
+    margin-left: 100px;
+    margin-top: 60px;
+    margin-right: 0px;
+}
