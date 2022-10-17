@@ -1,5 +1,6 @@
 # credit-rating-site
 
+<br />
 This is the default navigation bar visible on all page:
 
 <img src="/example-images/basic.png" alt="Default navbar">
