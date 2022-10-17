@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 session = requests.Session()
 
 # Get this from credentials file
-payload = {'username' : 'sean.devine24@gmail.com',
-           'password' : 'Full$tack2022!'}
+payload = {'username' : '*****',
+           'password' : '*******'}
 
 page = session.post("https://login.spglobal.com/oam/server/auth_cred_submit", data = payload)
 
