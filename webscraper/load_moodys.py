@@ -24,11 +24,11 @@ for row in csvreader:
 print(len(companies))
 
 # Credentials
-USERNAME = "sean.devine24@gmail.com"
-PWD = "Full$tack2022!"
+USERNAME = "*****"
+PWD = "*****"
 
 # Chromedriver must be in PATH
-DRIVER_PATH = "/Users/seandevine/Desktop/Life/PersonalProjects/credit-rating-site/chromedriver"
+DRIVER_PATH = ""
 
 # Run without GUI
 options = Options()
@@ -235,7 +235,7 @@ for c in notFound:
 fil.close()
 
 # Insert data into mongoDB
-cluster = "mongodb+srv://dbAdmin:dbAdmin%24@creditrating.nijkfp8.mongodb.net/?retryWrites=true&w=majority"
+cluster = ""
 client = MongoClient(cluster)
 db = client.MY
 ratings = db.ratings
