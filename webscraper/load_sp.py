@@ -19,11 +19,11 @@ for row in csvreader:
     companies.append(row)
 
 # Credentials
-USERNAME = "sean.devine24@gmail.com"
-PWD = "Full$tack2022!"
+USERNAME = "******"
+PWD = "******"
 
 # Chromedriver must be in PATH
-DRIVER_PATH = "/Users/seandevine/Desktop/Life/PersonalProjects/credit-rating-site/webscraper/chromedriver"
+DRIVER_PATH = ""
 
 # Run without GUI
 options = Options()
@@ -106,7 +106,7 @@ for company in companies:
 time.sleep(5)
 
 # Insert data into mongoDB
-cluster = "mongodb+srv://dbAdmin:dbAdmin%24@creditrating.nijkfp8.mongodb.net/?retryWrites=true&w=majority"
+cluster = ""
 client = MongoClient(cluster)
 # client.SPratings is prod db
 db = client.Ratings
