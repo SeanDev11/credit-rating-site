@@ -11,3 +11,7 @@ The searchbar performs live search of MongoDB database to provide type-ahead sea
 View of credit rating search results using angular mat-table:
 
 <img src="/example-images/results.png" alt="Credit rating search results view">
+
+Explanation of Moody's and Standard & Poor's ratings:
+
+<img src="/example-images/ratingsExplanation.png" alt="Chart explaining how to compare ratings between different agencies">
