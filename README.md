@@ -7,7 +7,7 @@
 <img src="/example-images/basic.png" alt="Default navbar">
 <br />
 
-## The searchbar performs live search of MongoDB database to provide type-ahead search.
+## The searchbar performs live search of a MongoDB database to provide type-ahead search.
 
 <img src="/example-images/typeAheadSearch.png" alt="Type-ahead search demo">
 <br />
