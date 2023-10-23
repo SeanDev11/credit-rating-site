@@ -1,4 +1,4 @@
-# credit-rating-site
+# A website to consolidate credit ratings from Moody's and S&P
 
 <br />
 
