@@ -1,4 +1,4 @@
-# A website to consolidate credit ratings from Moody's and S&P
+# Website consolidating credit ratings from Moody's and S&P
 
 <br />
 
